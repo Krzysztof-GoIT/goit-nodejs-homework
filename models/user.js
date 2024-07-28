@@ -16,7 +16,8 @@ const schema = new mongoose.Schema(
             enum: ["starter", "pro", "business"],
             default: "starter",
         },
-        token: { type: String },
+        token: String,
+        avatarURL: String,
     },
     {
         timestamps: true,

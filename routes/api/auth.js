@@ -6,10 +6,12 @@ const {
     logout,
     userInfo,
     upSubscription,
+    upAvatar,
 } = require("../../controllers/auth.controller");
 const { authUser, upUserSubscription } = require("../../helpers/schemasUsers");
 const { validateAuth } = require("../../helpers/validateAuth");
 const { validateToken } = require("../../helpers/validateToken");
+const { upload } = require("../../helpers/uploadAvatar");
 
 const authRouter = express.Router();
 
@@ -30,6 +32,12 @@ authRouter.patch(
     tryCatchWrapper(validateToken),
     validateAuth(upUserSubscription),
     tryCatchWrapper(upSubscription)
+);
+authRouter.patch(
+    "/avatars",
+    tryCatchWrapper(validateToken),
+    upload.single("avatar"),
+    tryCatchWrapper(upAvatar)
 );
 
 module.exports = {

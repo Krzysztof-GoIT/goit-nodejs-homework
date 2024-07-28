@@ -1,7 +1,8 @@
 require("dotenv").config();
 const nodemailer = require("nodemailer");
 
-const { EMAIL_USER, EMAIL_PASSWORD } = process.env;
+const { SMTP_SENDER, SMTP_SERVER, SMTP_PORT, SMTP_USER, SMTP_PASSWORD } =
+    process.env;
 
 function tryCatchWrapper(enpointFn) {
     return async (req, res, next) => {
@@ -22,15 +23,15 @@ class ValidationError extends Error {
 
 async function sendMail({ to, html, subject }) {
     const email = {
-        from: "veryfity@local.host",
+        from: SMTP_SENDER,
         to,
         subject,
         html,
     };
 
     const transport = nodemailer.createTransport({
-        host: "sandbox.smtp.mailtrap.io",
-        port: 2525,
+        host: SMTP_SERVER,
+        port: SMTP_PORT,
         auth: {
             user: SMTP_USER,
             pass: SMTP_PASSWORD,

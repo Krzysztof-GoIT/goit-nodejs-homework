@@ -1,10 +1,8 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", true);
 
 mongoose.set("debug", true);
-
-const dotenv = require("dotenv");
-dotenv.config();
 
 const app = require("./app");
 

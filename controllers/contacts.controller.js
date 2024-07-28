@@ -33,7 +33,7 @@ async function getContactById(req, res) {
 
 async function addContact(req, res) {
     const { name, email, phone } = req.body;
-    const { id: owner } = req.user;
+    const { id: owner } = req;
 
     const NewContact = await Contact.create({ name, email, phone, owner });
     console.log("NewContact", NewContact);

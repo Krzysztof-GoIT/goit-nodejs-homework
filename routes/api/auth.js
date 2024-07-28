@@ -20,7 +20,7 @@ const authRouter = express.Router();
 authRouter.post("/register", validateAuth(authUser), tryCatchWrapper(register));
 authRouter.post("/signup", validateAuth(authUser), tryCatchWrapper(register));
 authRouter.get("/login", validateAuth(authUser), tryCatchWrapper(login));
-authRouter.post(
+authRouter.get(
     "/logout",
     tryCatchWrapper(validateToken),
     tryCatchWrapper(logout)

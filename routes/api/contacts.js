@@ -12,14 +12,14 @@ const {
     removeContact,
     updateContact,
     updateStatusContact,
-} = require("../../controllers/contacts.controller");
+} = require("../../controllers/contacts.controller.js");
 
 const {
     addContactSchema,
     putContactSchema,
     updateStatusSchema,
 } = require("../../helpers/schemasContacts");
-const { tryCatchWrapper } = require("../../helpers/helpers");
+const { tryCatchWrapper } = require("../../helpers/helpers.js");
 
 const router = express.Router();
 

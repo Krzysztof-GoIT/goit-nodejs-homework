@@ -4,7 +4,7 @@ const schema = new mongoose.Schema(
     {
         password: {
             type: String,
-            required: [true, "Set password for user"],
+            required: [true, "Password is required"],
         },
         email: {
             type: String,
@@ -18,6 +18,14 @@ const schema = new mongoose.Schema(
         },
         token: String,
         avatarURL: String,
+        verify: {
+            type: Boolean,
+            default: false,
+        },
+        verificationToken: {
+            type: String,
+            required: [true, "Token is required"],
+        },
     },
     {
         timestamps: true,
